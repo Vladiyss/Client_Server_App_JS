@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Регистрация</title>
+    <meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="../style/style_main.css" />
+</head>
+
+<body>
+    <header class="header">
+		<div class="header__container">
+			<nav class="nav">
+				<a class="nav__link" href="/signup">Зарегистрироваться</a>
+				<a class="nav__link" href="/signin">Войти</a>
+			</nav>
+		</div>
+	</header>
+	
+	<article>
+		<form action="signup" method="POST" class="registration__form">
+			<br><br>
+			<label>Имя</label>
+			<input name="name" type="text" required/><br><br>
+			<br>
+			<label>Логин</label>
+			<input name="login" type="text" required/><br><br>
+			<br>
+			<label>Пароль</label>
+			<input name="password" type="password" required/><br><br>
+			<br>
+			<input type="submit" value="Зарегистрироваться" />
+		</form>
+	</article>
+	
+	<footer>
+		<p>Copyright &copy 2020 KVV</p>
+	</footer>
+
+</body>
+<html>

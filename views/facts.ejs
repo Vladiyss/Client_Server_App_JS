@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Факты</title>
+    <meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="../style/style_main.css" />
+</head>
+
+<body>
+    <header class="header">
+		<div class="header__container">
+			<nav class="nav">
+				<a class="nav__link" href="../user/<%=userId%>">Профиль</a>
+				<a class="nav__link" href="../facts/addfact">Добавить факт</a>
+				<a class="nav__link" href="../signout">Привет, <%=userName%></a>
+			</nav>
+		</div>
+	</header>
+	
+	<article>
+		<% for (var i = 0; i < facts.length; i++) {%>
+		<div class="fact__container">
+			<p><h3><%=facts[i].author.name%>	-	<%=facts[i].date.getDate() + "." + 
+			(facts[i].date.getMonth() + +1) + "." +
+			facts[i].date.getFullYear() + " " +
+			facts[i].date.getHours() + ":" +
+			facts[i].date.getMinutes()%></h3></p>
+			<p><a href="../facts/showFact?id=<%=facts[i]._id%>"><%=facts[i].title%></a></p>
+			<p><%=facts[i].content%></p>
+			<a href="../facts/like?id=<%=facts[i]._id%>">Like <%=facts[i].likes.length%></a>		
+		</div>
+		<%}%>
+	</article>
+	
+	<footer>
+		<p>Copyright &copy 2020 KVV</p>
+	</footer>
+
+</body>
+<html>

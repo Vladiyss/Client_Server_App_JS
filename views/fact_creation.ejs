@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Факт</title>
+    <meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="../style/style_main.css" />
+</head>
+
+<body>
+    <header class="header">
+		<div class="header__container">
+			<nav class="nav">
+				<a class="nav__link" href="../user/<%=userId%>">Профиль</a>
+				<a class="nav__link" href="../facts/addfact">Добавить факт</a>
+				<a class="nav__link" href="../signout">Привет, <%=userName%></a>
+			</nav>
+		</div>
+	</header>
+	
+	<article>
+		<form action="addfact" method="POST" enctype="multipart/form-data" class="fact__creation__form">
+				<br><br>
+				<label>Заголовок</label>
+				<input type="text" name="fact_title" required/><br>
+				<br>
+				<label>Содержимое</label>
+				<textarea name="fact_content" required></textarea><br>
+				<br>
+				<label>Фото</label>
+				<input type="file" name="fact_file"/><br>
+				<br>
+				<input type="submit" value="Создать"/>
+			</form>
+	</article>
+	
+	<footer>
+		<p>Copyright &copy 2020 KVV</p>
+	</footer>
+
+</body>
+<html>

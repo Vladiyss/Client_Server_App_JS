@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Факт</title>
+    <meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="../style/style_main.css" />
+</head>
+
+<body>
+    <header class="header">
+		<div class="header__container">
+			<nav class="nav">
+				<a class="nav__link" href="../user/<%=userId%>">Профиль</a>
+				<a class="nav__link" href="../facts/addfact">Добавить факт</a>
+				<a class="nav__link" href="../signout">Привет, <%=userName%></a>
+			</nav>
+		</div>
+	</header>
+	
+	<article>
+		<div class="single__fact__container">
+			<p><h3><%=fact.author.name%>	-	<%=fact.date.getDate() + "." + 
+			(fact.date.getMonth() + +1) + "." +
+			fact.date.getFullYear() + " " +
+			fact.date.getHours() + ":" +
+			fact.date.getMinutes()%></h3></p>
+			<p><%=fact.title%></p>
+			<p><%=fact.content%></p>
+			<img src="../images/<%=fact.image%>" width="480" height="320">
+			<br>
+			<a href="../facts/like?id=<%=fact._id%>">Like <%=fact.likes.length%></a>		
+		</div>
+	</article>
+	
+	<footer>
+		<p>Copyright &copy 2020 KVV</p>
+	</footer>
+
+</body>
+<html>
