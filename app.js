@@ -18,7 +18,7 @@ mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: 
   if (err)
     console.log(err);
   else
-    console.log('connected');
+    console.log('MongoDB Successfully Connected');
 });
 
 const filter = function(request, file, cb) {
@@ -44,4 +44,6 @@ app.use('/', function(request, response){
   response.status(404).send('Not found');
 });
 
-app.listen(PORT);
+app.listen(PORT, () => {
+    console.log(`Server started at PORT: ${PORT}`);
+});

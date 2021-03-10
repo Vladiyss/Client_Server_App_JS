@@ -24,8 +24,8 @@ exports.createFact = function(request, response) {
 	return;
   }
  
-  if (request.body.fact_title == undefined || request.body.fact_title == undefined) {
-    response.send('Please, check the file');
+  if (request.body.fact_title == undefined || request.body.fact_content == undefined) {
+    response.send('File title and content must be specified');
 	return;
   }
   
@@ -34,13 +34,13 @@ exports.createFact = function(request, response) {
 	title: request.body.fact_title,
 	content: request.body.fact_content, 
     author: userId, 
-    image: request.body.fact_file
+    image: request.file.fact_file
   });
   
   fact.save(function(err) {
     if (err) {
 	  console.log(err);
-	  response.status(400).send('Error');
+	  response.status(400).send('Error in saving file');
 	} else {
 	  showFacts(request, response);
 	}
@@ -51,7 +51,7 @@ exports.showFact = function(request, response) {
 	
 	let fact = {};
 	
-	Fact.findOne({_id: request.query.id}, function(err, fact) {
+	Fact.findOne({_id: request.query.id}).populate('author').exec(function(err, fact) {
 	  if (err || !fact) {
 		response.send('Error');
 		return;
